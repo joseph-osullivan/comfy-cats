@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "comfycats",
+	"version": "${version}",
+	"name": "Comfy Cats",
+	"description": "Tamed cats curl up and nap on cushions during the day, reusing the vanilla bed lying-down pose.",
+	"authors": [
+		"Joseph O'Sullivan"
+	],
+	"contact": {
+		"sources": "https://github.com/joseph-osullivan/comfy-cats"
+	},
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.comfycats.ComfyCats"
+		]
+	},
+	"mixins": [
+		"comfycats.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "*",
+		"java": ">=25"
+	}
+}

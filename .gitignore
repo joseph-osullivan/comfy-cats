@@ -1,0 +1,28 @@
+# Gradle
+.gradle/
+.cache/
+build/
+out/
+classes/
+
+# Loom
+.loom-cache/
+remappedSrc/
+run/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+bin/
+
+# OS
+.DS_Store
+
+# Transient build/run logs
+*.log

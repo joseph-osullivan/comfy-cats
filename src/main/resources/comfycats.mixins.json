@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "com.comfycats.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"mixins": [
+		"CatMixin"
+	],
+	"client": [
+		"client.CatRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
