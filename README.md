@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="224" height="187" alt="comfy_cats_icon" src="https://github.com/user-attachments/assets/1715c711-cb41-41e9-8268-fa528fa44fcf" />
+</p>
+
 # Comfy Cats
 
 A tiny Fabric mod for **Minecraft 26.3-snapshot-3**: during the day, tamed cats
