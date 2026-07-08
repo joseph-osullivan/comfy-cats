@@ -4,6 +4,12 @@
 
 # Comfy Cats
 
+<p align="center">
+  <a href="https://modrinth.com/mod/comfy-cats"><img alt="Download on Modrinth" src="https://img.shields.io/badge/Modrinth-comfy--cats-00AF5C?style=for-the-badge&logo=modrinth&logoColor=white"></a>
+  &nbsp;
+  <a href="https://www.curseforge.com/minecraft/mc-mods/comfy-cats"><img alt="Download on CurseForge" src="https://img.shields.io/badge/CurseForge-comfy--cats-F16436?style=for-the-badge&logo=curseforge&logoColor=white"></a>
+</p>
+
 A tiny Fabric mod for **Minecraft 26.3-snapshot-3**: during the day, tamed cats
 curl up and nap on [cushions](https://minecraft.wiki/w/Cushion), reusing the same
 lying-down pose they already use on beds.
