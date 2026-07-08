@@ -54,4 +54,6 @@ jobs:
           loaders: fabric
           # Must match Modrinth's exact game-version tag for this snapshot; adjust if it differs.
           game-versions: '26.3-snapshot-3'
+          # Default filter is "releases", which silently drops snapshot versions like ours; keep them.
+          game-version-filter: any
           retry-attempts: 2
