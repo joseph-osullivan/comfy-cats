@@ -1,0 +1,57 @@
+name: Publish
+
+# Builds the mod on every v* tag push (or manual dispatch) and uploads the jar
+# to Modrinth as a new version, and attaches it to the matching GitHub release.
+#
+# One-time setup:
+#   1. Create the project on modrinth.com and note its slug/ID.
+#   2. Point this repo at it:
+#        gh variable set MODRINTH_PROJECT_ID --repo joseph-osullivan/comfy-cats --body "<slug>"
+#   3. Add a Modrinth PAT (scope: "Create versions") as a secret:
+#        gh secret set MODRINTH_TOKEN --repo joseph-osullivan/comfy-cats
+#
+# Releasing:
+#   Bump mod_version in gradle.properties, commit, then:
+#        git tag v1.0.0 && git push origin v1.0.0
+#   The tag push triggers this workflow.
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write   # create/attach the GitHub release asset
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - name: Build
+        run: ./gradlew build --no-daemon
+
+      - name: Publish to Modrinth + GitHub release
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: ${{ vars.MODRINTH_PROJECT_ID }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # Ship the mod jar, not the -sources jar. Name/version are read from
+          # the jar's fabric.mod.json.
+          files: |
+            build/libs/*.jar
+            !build/libs/*-sources.jar
+          version-type: beta        # a snapshot build; switch to release when it targets a stable MC
+          loaders: fabric
+          # Must match Modrinth's exact game-version tag for this snapshot; adjust if it differs.
+          game-versions: '26.3-snapshot-3'
+          retry-attempts: 2
